@@ -1,0 +1,88 @@
+.part-page-image {
+    max-width: 1180px;
+    width: 100%;
+    padding: 70px 15px;
+}
+
+.page-content table tr td, .page-content table tr th {
+    padding: 10px 15px;
+    border: 1px solid #3a325b;
+    font-size: 18px;
+    font-weight: 700
+}
+
+.part-page-image img {
+    width: 100%
+}
+
+.part-page-video {
+    max-width: 820px;
+    width: 100%
+}
+
+.part-page-video iframe {
+    width: 100%;
+    height: 478px
+}
+
+.full-page-map {
+    width: 100%;
+    margin-bottom: 55px
+}
+
+.full-page-map iframe {
+    width: 100%;
+    height: 515px
+}
+
+.page-content table {
+    width: 100%
+}
+
+.page-content table tr td {
+    text-align: left;
+    color: #3a325b
+}
+
+.page-content table tr th {
+    vertical-align: top;
+    background-color: #3a325b;
+    color: #fff
+}
+
+.about-vz-content, .festivals-content {
+    text-align: center;
+    max-width: 850px;
+    width: 100%;
+    padding: 70px 15px
+}
+
+.about-vz-content h3, .festivals-content h3 {
+    font-size: 30px;
+    color: #483056;
+    margin: 0;
+    font-family: "Consuit B", sans-serif;
+    text-transform: uppercase
+}
+
+.about-vz-content hr, .festivals-content hr {
+    border: none;
+    height: 2px;
+    background-color: #e33736;
+    width: 120px;
+    margin: 10px auto
+}
+
+.about-vz-content p, .festivals-content p {
+    text-align: left;
+    font-size: 18px;
+    color: #474747;
+    font-family: "Consuit M", sans-serif;
+    margin: 0 0 30px
+}
+
+.part-page-carousel {
+    max-width: 1180px;
+    width: 100%;
+    margin: 0 auto
+}
