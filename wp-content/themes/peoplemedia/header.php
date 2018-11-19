@@ -1,6 +1,6 @@
 <?php
 /**
- * The header for Wine Route
+ * The header for People Media
 
  */
 
@@ -8,347 +8,177 @@ global $post; global $wp;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zxx" class="no-js">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="utf-8">
-	<?php if (is_front_page()) : ?>
-		<meta name="description" content="Vayots Dzor Wine Route" />
-		<meta name="keywords" content="wine, winery, Vayots Dzor" />
-	<?php else: ?>
-		<meta name="description" content="<?php echo get_post_meta($post->ID, 'description', true); ?>" />
-		<meta name="keywords" content="<?php echo get_post_meta($post->ID, 'keywords', true); ?>" />
-	<?php endif; ?>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<META NAME="Robots" content="ALL">
-	<meta name="author" content="Vayots Dzor Wine Route">
-	<meta name="copyright" content="Vayots Dzor Wine Route">
-	<meta name="MobileOptimized" content="320">
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta property="place:location:latitude" content="13.062616"/>
-	<meta property="place:location:longitude" content="80.229508"/>
-	<meta property="business:contact_data:street_address" content="Vayots Dzor"/>
-	<meta property="business:contact_data:locality" content="Vayots Dzor"/>
-	<meta property="business:contact_data:postal_code" content=""/>
-	<meta property="business:contact_data:country_name" content="Armenia"/>
-	<meta property="business:contact_data:email" content=""/>
-	<meta property="business:contact_data:phone_number" content=""/>
-	<meta property="business:contact_data:website" content=""/>
-	<meta name="twitter:card" content="summary"/>
-	<meta name="twitter:site" content="Vayots Dzor Wine Route"/>
-	<meta name="twitter:title" content="Vayots Dzor Wine Route">
-	<meta name="twitter:description" content="Vayots Dzor Wine Route"/>
-	<meta name="twitter:creator" content="Vayots Dzor Wine Route"/>
-	<meta name="twitter:image:src" content="/wp-content/uploads/2017/11/wineries-b.png"/>
-	<meta name="twitter:domain" content="http://wine.be-alternative.info"/>
-	<meta name="application-name" content=""/>
-	<meta name="msapplication-TileColor" content="#1abc9c"/>
+    <!-- Author Meta -->
+    <meta charset="utf-8">
+    <?php if (is_front_page()) : ?>
+        <meta name="description" content="People Media" />
+        <meta name="keywords" content="people, media" />
+    <?php else: ?>
+        <meta name="description" content="<?php echo get_post_meta($post->ID, 'description', true); ?>" />
+        <meta name="keywords" content="<?php echo get_post_meta($post->ID, 'keywords', true); ?>" />
+    <?php endif; ?>
 
-
-	<?php if (is_single()) : ?>
-		<meta property="og:title" content="<?php the_title(); ?>"/>
-		<meta property="og:description" content="<?php   echo $post->post_excerpt; ?>"/>
-		<meta property="og:type" content="page"/>
-		<meta property="og:url" content="<?php echo get_permalink(); ?>"/>
-		<meta property="og:image" content="<?php echo get_field('front_page_image'); ?>"/>
-	<?php  elseif (is_page()):  ?>
-		<meta property="og:title" content="<?php get_the_title($post->ID); ?>"/>
-		<meta property="og:description" content="  <?php the_field('short_description',$post->ID); ?>"/>
-		<meta property="og:type" content="page"/>
-		<meta property="og:url" content="<?php echo home_url( $wp->request ); ?>"/>
-		<?php if (have_rows('add_images',$post->ID)) : ?>
-			<?php while (have_rows('add_images',$post->ID)) : the_row(); ?>
-				<meta property="og:image" content="<?php the_sub_field('image'); ?>"/>
-			<?php endwhile; ?>
-		<?php endif; ?>
-
-	<?php else: ?>
-		<meta property="og:title" content="Vayots Dzor Wine Route"/>
-		<meta property="og:description" content="Vayots Dzor Wine Route"/>
-		<meta property="og:type" content="page"/>
-		<meta property="og:url" content="http://wine.be-alternative.info"/>
-		<meta property="og:image" content="/wp-content/uploads/2017/11/wineries-b.png"/>
-	<?php endif; ?>
-
-	<?php if (is_front_page()) : ?>
-		<title>Vayots Dzor Wine Route</title>
-	<?php else: ?>
-		<title>Vayots Dzor Wine Route - <?php the_title(); ?> </title>
-	<?php endif; ?>
-
-	<link rel="apple-touch-icon" sizes="57x57" href="/wp-content/themes/wineroute/favicon/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="/wp-content/themes/wineroute/favicon/apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/wp-content/themes/wineroute/favicon/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="/wp-content/themes/wineroute/favicon/apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="/wp-content/themes/wineroute/favicon/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="/wp-content/themes/wineroute/favicon/apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="/wp-content/themes/wineroute/favicon/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="/wp-content/themes/wineroute/favicon/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/wp-content/themes/wineroute/favicon/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192"  href="/wp-content/themes/wineroute/favicon/android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/wp-content/themes/wineroute/favicon/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/wp-content/themes/wineroute/favicon/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/wp-content/themes/wineroute/favicon/favicon-16x16.png">
-	<link rel="manifest" href="/wp-content/themes/wineroute/favicon/manifest.json">
-	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-	<meta name="theme-color" content="#ffffff">
-	<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/font-awesome.min.css">
-	<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/slick.css">
-	<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/style.css">
-	<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/new.css">
-
-	<?php $currentLanguage  = get_bloginfo('language');
-
-	if ( $currentLanguage == "hy-AM" ) :  ?>
-         <style>
-            
-
-body {
-  font-family: "Montserrat L", sans-serif !important;
-}
-
-.home-section article h3, .intro-content h1 {
-  font-family: "Montserrat B", sans-serif !important;
-}
-
-.intro-content p {
-  font-family: "Montserrat M", sans-serif !important;
-
-}
-
-.info-content h3, .page-content h3 {
-  font-family: "Montserrat B", sans-serif !important;
-}
-
-.info-content p, .page-content p {
-  font-family: "Montserrat M", sans-serif !important;
-}
-.page-content button {
-  font-family: "Montserrat L", sans-serif !important;
-}
-
-.our-wines-box h3, .visit-places-box a {
-  font-family: "Montserrat B", sans-serif !important;
-}
-
-.page-content button {
-  font-family: "Montserrat L", sans-serif !important;
-}
-
-.our-wines-box h3, .visit-places-box a {
-  font-family: "Montserrat B", sans-serif !important;
-}
-.our-wines-box p {
-  font-family: "Montserrat M", sans-serif !important;
-}
-
-.visit-guide-box h3 {
-  font-family: "Montserrat B", sans-serif !important;
-}
-
-.visit-guide-box p {
-  font-family: "Montserrat M", sans-serif !important;
-}
-
-.visit-guide-box button {
-  font-family: "Montserrat L", sans-serif !important;
-}
-
-.see-also-caption h3, .see-also-content h3 {
-  font-family: "Montserrat B", sans-serif !important;
-}
-
-.see-also-caption p {
-  font-family: "Montserrat M", sans-serif !important;
-}
-
-.see-also-caption button {
-  font-family: "Montserrat L", sans-serif !important;
-}
-
-.itineraries-action-box h3 {
-  font-family: "Montserrat B", sans-serif !important;
-}
-
-.itineraries-action-box p {
-  font-family: "Montserrat M", sans-serif !important;
-}
-
-.itineraries-action-box button {
-  font-family: "Montserrat L", sans-serif !important;
-}
-
-.visit-site-intro-content p {
-  font-family: "Montserrat M", sans-serif !important;
-}
-
-.visit-site-content h3 {
-  font-family: "Montserrat B", sans-serif !important;
-}
-
-.visit-site-content p {
-  font-family: "Montserrat M", sans-serif !important;
-}
-
-.visit-site-info p {
-  font-family: "Montserrat B", sans-serif !important;
-}
-
-.visit-site-info p span {
-  font-family: "Montserrat L", sans-serif !important;
-}
-
-.home-carousel-caption h2 {
-  font-family: "Montserrat M ", sans-serif !important;
-}
-
-.home-action-content button {
-  font-family: "Montserrat L", sans-serif !important;
-}
-
-.footer-up-box-right h3 {
-  font-family: "Montserrat B", sans-serif !important;
-}
-
-.footer-up-box-right button {
-  font-family: "Montserrat L", sans-serif !important;
-}
-
-.footer-down-box h5 {
-  font-family: "Montserrat B", sans-serif !important;
-}
-
-.into-content-new h3 {
-  font-family: "Montserrat B", sans-serif !important;
-}
-
-.into-content-new p {
-  font-family: "Montserrat M", sans-serif !important;
-}
-
-.home-trail-box .map-info h4, .home-trail-box .map-info p {
-  font-family: "Montserrat B", sans-serif !important;
-}
-
-             .navbar-collapse .navbar-nav .nav-item .nav-link {
-                 font-size: 17px;
-               
-               
-             }
-
-             .navbar-collapse .navbar-nav .dropdown-menu .dropdown-item {
-                 font-size: 17px;
-             }
-
-             .navbar-collapse .navbar-nav .dropdown-menu .nav-item {
-                 height: 33px;
-             }
-.visit-guide-box button, .itineraries-action-box button {
-    font-size: 26px;
-}
-
-.footer-down-usaid-box p {
-    font-size: 12px;
-    line-height: 1.2;
-}
-
-.footer-up-box-right p {
-    font-size: 16px;
-}
-
-.footer-down-box ul li a {
-    font-size: 16px;
-}
-             
-         </style>
-	<?php endif; ?>
-
-      <style>
-.discovery {
-    color: inherit;
-    cursor: default;
-}
-
-.discovery:hover {
-	text-decoration: none;
-}
+    <META NAME="Robots" content="ALL">
+    <meta name="author" content="People Media">
+    <meta name="copyright" content="People Media">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta property="place:location:latitude" content="13.062616"/>
+    <meta property="place:location:longitude" content="80.229508"/>
+    <meta property="business:contact_data:street_address" content="People Media"/>
+    <meta property="business:contact_data:locality" content="People Media"/>
+    <meta property="business:contact_data:postal_code" content=""/>
+    <meta property="business:contact_data:country_name" content="Armenia"/>
+    <meta property="business:contact_data:email" content=""/>
+    <meta property="business:contact_data:phone_number" content=""/>
+    <meta property="business:contact_data:website" content=""/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="People Media"/>
+    <meta name="twitter:title" content="People Media">
+    <meta name="twitter:description" content="People Media"/>
+    <meta name="twitter:creator" content="People Media"/>
+    <meta name="twitter:image:src" content="/peoplemedia/wp-content/themes/peoplemedia/img/logo-small.png">
+    <meta name="twitter:domain" content="http://peoplemedia.am"/>
+    <meta name="application-name" content=""/>
+    <meta name="msapplication-TileColor" content="#1abc9c"/>
 
 
+    <?php if (is_single()) : ?>
+        <meta property="og:title" content="<?php the_title(); ?>"/>
+        <meta property="og:description" content="<?php   echo $post->post_excerpt; ?>"/>
+        <meta property="og:type" content="page"/>
+        <meta property="og:url" content="<?php echo get_permalink(); ?>"/>
+        <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>"/>
+    <?php  elseif (is_page()):  ?>
+        <meta property="og:title" content="<?php get_the_title($post->ID); ?>"/>
+        <meta property="og:description" content="  <?php the_field('short_description',$post->ID); ?>"/>
+        <meta property="og:type" content="page"/>
+        <meta property="og:url" content="<?php echo home_url( $wp->request ); ?>"/>
+        <meta property="og:image" content="<?php get_the_post_thumbnail_url($post->ID); ?>"/>
 
-@media only screen and (min-width: 992px)  {
-   .menu-item-1053-en , .menu-item-1053-hy {
-   display: none;	
-}
+    <?php else: ?>
+        <meta property="og:title" content="People Media"/>
+        <meta property="og:description" content="People Media Description"/>
+        <meta property="og:type" content="page"/>
+        <meta property="og:url" content="http://peoplemedia.am"/>
+        <meta property="og:image" content="/peoplemedia/wp-content/themes/peoplemedia/img/logo-small.png"/>
+    <?php endif; ?>
 
-.navbar-collapse .navbar-nav .nav-item .nav-link {
-    padding: 53px 5px 0;
-}
+    <?php if (is_front_page()) : ?>
+        <title>People Media</title>
+    <?php else: ?>
+        <title>People Media - <?php the_title(); ?> </title>
+    <?php endif; ?>
 
-}
-
-
-
-      </style>
-
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/peoplemedia/wp-content/themes/peoplemedia/img/logo.jpg">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/linearicons.css">
+    <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/magnific-popup.css">
+    <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/nice-select.css">
+    <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/animate.min.css">
+    <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/owl.carousel.css">
+    <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/jquery-ui.css">
+    <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/main.css">
+    <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/style.css">
+    <?php wp_enqueue_script("jquery"); ?>
+    <?php wp_head(); ?>
 </head>
-
 <body>
+<div id="fb-root"></div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=1935308160111969&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+<header>
 
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-sm-6 col-6 header-top-left no-padding">
+                        <div class="news-tracker-wrap">
+                            <h6><span>Breaking News:</span>   <a href="#">Astronomy Binoculars A Great Alternative</a></h6>
+                        </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-6 header-top-right no-padding">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="tel:+440 012 3654 896"><span class="lnr lnr-phone-handset"></span><span>+440 012 3654 896</span></a></li>
+                        <li><a href="mailto:info@peoplemedia.am"><span class="lnr lnr-envelope"></span><span>info@peoplemedia.am</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="logo-wrap">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-lg-4 col-md-4 col-sm-12 logo-left no-padding">
+                    <a href="http://localhost/peoplemedia">
+                        <img class="img-fluid" style="max-width: 50%;"  src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo-small.png" alt="">
+                    </a>
 
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 logo-right no-padding ads-banner">
+                    <img class="img-fluid" src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/banner-ad.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container main-menu" id="main-menu">
+        <div class="row align-items-center justify-content-between">
+            <nav id="nav-menu-container">
+             <?php  wp_nav_menu(array('theme_location' => 'header-menu', 'container_class' => '', 'container_id' => '', 'menu_class' => 'nav-menu')); ?>
+              <!--  <ul class="nav-menu">
+                     <li class="menu-active"><a href="index.html">Home</a></li>
+                     <li class="menu-has-children"><a href="">Մարդիկ</a>
+                         <ul>
+                             <li><a href="standard-post.html">Հարցազրույց</a></li>
+                             <li><a href="image-post.html">Մոնոլոգ</a></li>
+                             <li><a href="gallery-post.html">Տեսակետ</a></li>
+                             <li><a href="video-post.html">Life story</a></li>
+                             <li><a href="audio-post.html">Մոտիվացիա
+                                 </a></li>
+                         </ul>
+                     </li>
+                     <li><a href="archive.html">Archive</a></li>
+                     <li><a href="category.html">Category</a></li>
 
-<?php if (is_front_page()): ?>
-<header class="home-header home">
-	<div class="header-content container">
-		<nav class="navbar navbar-expand-lg navbar-light">
-          <?php if ( $currentLanguage == "hy-AM" ) :  ?>
-             <a class="navbar-brand" href="/hy">
-          <?php else : ?>
-            <a class="navbar-brand" href="/">
-          <?php endif; ?> 
-<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/header-logo.png" alt="Header Logo">
-			</a>
-          
-        
-  
-				
-
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-					aria-expanded="false" aria-label="Toggle navigation">
-				<i class="fa fa-bars" aria-hidden="true"></i>
-			</button>
-			<?php  wp_nav_menu(array('theme_location' => 'header-menu', 'container_class' => 'collapse navbar-collapse', 'container_id' => 'navbarSupportedContent', 'menu_class' => 'navbar-nav mr-auto')); ?>
-            <ul class="navbar-nav ml-auto nav-lang"><?php pll_the_languages();?></ul>
-			</nav>
-	</div>
-</header>
-
-<?php else: ?>
-
-<header class="home other-pages">
-    <div class="header-content container">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <?php if ( $currentLanguage == "hy-AM" ) :  ?>
-             <a class="navbar-brand" href="/hy">
-          <?php else : ?>
-            <a class="navbar-brand" href="/">
-          <?php endif; ?>
-                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/header-logo.png" alt="Header Logo">
-            </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <?php  wp_nav_menu(array('theme_location' => 'header-menu', 'container_class' => 'collapse navbar-collapse', 'container_id' => 'navbarSupportedContent', 'menu_class' => 'navbar-nav mr-auto')); ?>
-            <ul class="navbar-nav ml-auto nav-lang"><?php pll_the_languages();?></ul>
-        </nav>
+                     <li><a href="about.html">About</a></li>
+                     <li><a href="contact.html">Contact</a></li>
+                 </ul> -->
+             </nav>  <!-- #nav-menu-container -->
+            <div class="navbar-right">
+              <!--  <form class="Search">
+                    <input type="text" class="form-control Search-box" name="Search-box" id="Search-box" placeholder="Search">
+                    <label for="Search-box" class="Search-box-label">
+                        <span class="lnr lnr-magnifier"></span>
+                    </label>
+                    <span class="Search-close">
+								<span class="lnr lnr-cross"></span>
+							</span>
+                </form> -->
+                <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
+            </div>
+        </div>
     </div>
 </header>
 
-<?php endif ?>
 
 
 

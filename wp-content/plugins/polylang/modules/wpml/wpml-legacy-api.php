@@ -24,7 +24,7 @@ if ( ! function_exists( 'icl_get_languages' ) ) {
 	 * Used for building custom language selectors
 	 * available only on frontend
 	 *
-	 * list of paramaters accepted in $args
+	 * List of paramaters accepted in $args:
 	 *
 	 * skip_missing  => whether to skip missing translation or not, 0 or 1, defaults to 0
 	 * orderby       => 'id', 'code', 'name', defaults to 'id'
@@ -36,7 +36,7 @@ if ( ! function_exists( 'icl_get_languages' ) ) {
 	 * id               => the language id
 	 * active           => whether this is the active language or no, 0 or 1
 	 * native_name      => the language name
-	 * missing          => wether the translation is missing or not, 0 or 1
+	 * missing          => whether the translation is missing or not, 0 or 1
 	 * translated_name  => empty, does not exist in Polylang
 	 * language_code    => the language code ( slug )
 	 * country_flag_url => the url of the flag
@@ -63,8 +63,8 @@ if ( ! function_exists( 'icl_get_languages' ) ) {
 		}
 
 		foreach ( $languages as $lang ) {
-			// We can find a translation only on frontend
-			if ( method_exists( PLL()->links, 'get_translation_url' ) ) {
+			// We can find a translation only on frontend once the global $wp_query object has been instantiated
+			if ( method_exists( PLL()->links, 'get_translation_url' ) && ! empty( $GLOBALS['wp_query'] ) ) {
 				$url = PLL()->links->get_translation_url( $lang );
 			}
 
@@ -162,21 +162,23 @@ if ( ! function_exists( 'icl_object_id' ) ) {
 	 *
 	 * @since 0.9.5
 	 *
-	 * @param int    $id                         object id
-	 * @param string $type                       optional, post type or taxonomy name of the object, defaults to 'post'
-	 * @param bool   $return_original_if_missing optional, true if Polylang should return the original id if the translation is missing, defaults to false
-	 * @param string $lang                       optional, language code, defaults to current language
-	 * @return int|null the object id of the translation, null if the translation is missing and $return_original_if_missing set to false
+	 * @param int    $id                         Object id
+	 * @param string $type                       Optional, post type or taxonomy name of the object, defaults to 'post'
+	 * @param bool   $return_original_if_missing Optional, true if Polylang should return the original id if the translation is missing, defaults to false
+	 * @param string $lang                       Optional, language code, defaults to current language
+	 * @return int|null The object id of the translation, null if the translation is missing and $return_original_if_missing set to false
 	 */
 	function icl_object_id( $id, $type = 'post', $return_original_if_missing = false, $lang = false ) {
 		$lang = $lang ? $lang : pll_current_language();
 
 		if ( 'nav_menu' === $type ) {
 			$theme = get_option( 'stylesheet' );
-			foreach ( PLL()->options['nav_menus'][ $theme ] as $loc => $menu ) {
-				if ( array_search( $id, $menu ) && ! empty( $menu[ $lang ] ) ) {
-					$tr_id = $menu[ $lang ];
-					break;
+			if ( isset( PLL()->options['nav_menus'][ $theme ] ) ) {
+				foreach ( PLL()->options['nav_menus'][ $theme ] as $loc => $menu ) {
+					if ( array_search( $id, $menu ) && ! empty( $menu[ $lang ] ) ) {
+						$tr_id = $menu[ $lang ];
+						break;
+					}
 				}
 			}
 		} elseif ( $pll_type = ( 'post' === $type || pll_is_translated_post_type( $type ) ) ? 'post' : ( 'term' === $type || pll_is_translated_taxonomy( $type ) ? 'term' : false ) ) {
@@ -208,6 +210,7 @@ if ( ! function_exists( 'wpml_get_language_information' ) ) {
 	/**
 	 * Undocumented function used by the theme Maya
 	 * returns the post language
+	 *
 	 * @see original WPML code at https://wpml.org/forums/topic/canonical-urls-for-wpml-duplicated-posts/#post-52198
 	 *
 	 * @since 1.8
@@ -357,6 +360,7 @@ if ( ! function_exists( 'icl_get_default_language' ) ) {
 if ( ! function_exists( 'wpml_get_default_language' ) ) {
 	/**
 	 * Undocumented function reported to be used by Table Rate Shipping for WooCommerce
+	 *
 	 * @see https://wordpress.org/support/topic/add-wpml-compatibility-function
 	 *
 	 * @since 1.8.2

@@ -4,99 +4,65 @@
  */
 ?>
 
-<footer>
-    <?php if (!is_page(144) && !is_page(543)) : ?>
-    <div class="footer-up">
-        <div class="footer-up-content container">
-            <div class="row no-gutters">
-                <div class="footer-up-box-left col-md-6 col-12">
-                    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/footer-book.png" alt="footer-up">
-                </div>
-                <div class="footer-up-box-right col-md-6 col-12">
-                    <h3>   <?php echo pll_e('WINE ROUTE VISITOR GUIDE')?>
-                    </h3>
-                    <hr>
-                   <p>
-                       <?php echo pll_e('Footer_paragraph1')?>
-                   </p>
-                    <p>
-                        <?php echo pll_e('Footer_paragraph2')?>
-                    </p>
+<!-- start footer Area -->
+<footer class="footer-area section-gap">
+    <div class="container">
 
-
-
-                    <?php $currentLanguage  = get_bloginfo('language');
-
-                    if ( $currentLanguage == "hy-AM" ) :  ?>
-                       <a href="https://view.joomag.com/%D5%80%D5%8E%D5%80-%D5%B4%D5%B8%D6%82%D5%AC%D5%BF%D5%AB%D5%B4%D5%A5%D5%A4%D5%AB%D5%A1-%D5%A7%D5%AC-%D5%A3%D6%80%D6%84%D5%A5%D6%80%D5%AB-%D5%B7%D5%A1%D6%80%D6%84-%D4%B3%D5%AB%D6%80%D6%843-%D5%8E%D5%A1%D5%B5%D5%B8%D6%81-%D5%81%D5%B8%D6%80/0709107001498552710?short" target="_blank"> <button><?php echo pll_e('Download')?></button></a>
-                    <?php endif; ?>
-                    <?php if ( $currentLanguage == "en-US" ) :  ?>
-                       <a href="https://view.joomag.com/avc-multimedia-e-book-series-ebook4-vayots-dzor/0514237001496663091?short" target="_blank"> <button><?php echo pll_e('Download')?></button></a>
-                    <?php endif; ?>
-
-
-
-                </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 single-footer-widget">
+                <a href="/peoplemedia/մեր-մասին/"> <h4>Մեր մասին</h4></a>
             </div>
-        </div>
-    </div>
-    <?php endif; ?>
-    <div class="footer-down">
-        <div class="footer-down-content container">
-            <div class="row no-gutters">
-                <div class="footer-down-box col-lg-3 col-md-6 col-12">
-                    <p>
-                        <i class="fa fa-envelope" aria-hidden="true"></i>info@vayotsdzorwineroute.com</p>
-                    <p>
-                        <i class="fa fa-phone" aria-hidden="true"></i>+37455050139</p>
+            <div class="col-lg-3 col-md-6 single-footer-widget">
+                <a href="/peoplemedia/գովազդ-կայքում/">  <h4>Գովազդ կայքում</h4></a>
+            </div>
+            <div class="col-lg-2 col-md-6 single-footer-widget">
+                <h4>Կապ մեզ հետ </h4>
+                <ul class="instafeed d-flex flex-wrap">
+                    <li><a href="tel:+440 012 3654 896"><span class="lnr lnr-phone-handset"></span><span>+440 012 3654 896</span></a></li>
+                    <li><a href="mailto:info@peoplemedia.com"><span class="lnr lnr-envelope"></span><span>info@peoplemedia.com</span></a></li>
+                </ul>
+            </div>
 
-                    <div class="footer-social">
-                        <a href="https://www.facebook.com/VayotsDzorWineRoute/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="https://www.instagram.com/vayotsdzorwineroute4085/" target="_blank"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-                <div class="footer-down-box menu-mobile col-md-6 col-12">
-                    <?php  wp_nav_menu(array('theme_location' => 'mobile-menu', 'container_class' => '', 'container_id' => '', 'menu_class' => '')); ?>
-                </div>
-                <div class="footer-down-box menu-web col-md-3 col-sm-6 col-12">
-                    <h5><?php echo pll_e('About')?></h5>
-                    <?php  wp_nav_menu(array('theme_location' => 'about-menu', 'container_class' => '', 'container_id' => '', 'menu_class' => '')); ?>
-                </div>
-                <div class="footer-down-box menu-web col-md-3 col-sm-6 col-12">
-                    <h5><?php echo pll_e('Our Wineries')?></h5>
-                    <?php  wp_nav_menu(array('theme_location' => 'wineries-menu', 'container_class' => '', 'container_id' => '', 'menu_class' => '')); ?>
-                </div>
-                <div class="footer-down-box menu-web col-md-3 col-sm-6 col-12">
-                    <h5><?php echo pll_e('Plan Your Visit')?></h5>
-                    <?php  wp_nav_menu(array('theme_location' => 'footer-menu', 'container_class' => '', 'container_id' => '', 'menu_class' => '')); ?>
-                </div>
-                <div class="footer-down-info-box col-12">
-                    <div class="d-flex justify-content-sm-between justify-content-center flex-sm-nowrap flex-wrap">
-                        <p><?php echo pll_e('Designed and Developed By AYYO Marketing')?></p>
-                       <!-- <div>
-                            <a href="#">Privacy Policy</a>
-                            <a href="#">Credits</a>
-                        </div> -->
-                    </div>
-                </div>
-                <div class="footer-down-usaid-box col-12">
-                    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/usaid.jpg" alt="usaid">
-                    <p>
-                        <?php echo pll_e('This website ')?>
-                    </p>
-                </div>
+        </div>
+        <div class="footer-bottom row align-items-center">
+
+            <div class="row ">
+                <div><p><span style="text-decoration: underline;"><a href="http://peoplemedia.am'" title="peoplemedia.am">Peoplemedia.am</a></span>-ի բոլոր իրավունքները պաշտպանված են։<br>Համաձայն <span style="text-decoration: underline;"><a href="http://www.arlis.am/documentview.aspx?docid=86160" target="_blank">«Հեղինակային իրավունքի և հարակից իրավունքների մասին»</a></span>&nbsp;ՀՀ օրենքի՝ people.am-ի հոդվածներից քաղվածքների վերարտադրումը չպետք է բացահայտի հոդվածների էական մասը, ինչպես նաև պարտադիր է կայքի ակտիվ հղումի տեղադրումը և քաղվածքի վերնագրում դոմեյնի նշումը:</p></div>
+            </div>
+            <p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+             &copy; <script>document.write(new Date().getFullYear());</script> peoplemedia.am
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            <div class="  col-lg-4 col-md-12 footer-social">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
             </div>
         </div>
     </div>
 </footer>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/jquery-3.2.1.js"></script>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/bootstrap/js/popper.min.js"></script>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/bootstrap/js/bootstrap.min.js"></script>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/slick.min.js"></script>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/masonry.pkgd.min.js"></script>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/my.masonry.js"></script>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/lightbox.min.js"></script>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/script.js"></script>
+<!-- End footer Area -->
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/vendor/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/vendor/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/easing.min.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/hoverIntent.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/superfish.min.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery.ajaxchimp.min.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery.magnific-popup.min.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/mn-accordion.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery-ui.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery.nice-select.min.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/owl.carousel.min.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/mail-script.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/main.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".carousel-item:first").addClass("active");
+
+    });
+</script>
+</body>
+</html>
 
 
 <?php wp_footer(); ?>

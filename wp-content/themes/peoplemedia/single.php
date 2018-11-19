@@ -11,87 +11,146 @@ get_header(); ?>
 
 
 
+<div class="site-main-container">
+    <!-- Start latest-post Area -->
+    <section class="latest-post-area pb-120">
+        <div class="container no-padding">
+            <div class="row">
+                <div class="col-lg-8 post-list">
+                    <!-- Start single-post Area -->
+                    <?php
+
+                    while ( have_posts() ) : the_post(); ?>
+
+
+
+                    <div class="popular-post-wrap single-post-wrap">
+                        <div class="feature-post">
+                            <div  class="feature-img-thumb feature-img   relative">
+                            <div class="overlay overlay-bg"></div>
+                            <img class="img-fluid" src="<?php echo get_field('main_image') ?>" alt="">
+                            </div>
+                        </div>
+                        <div class="content-wrap">
+
+                            <a href="#">
+                                <h3> <?php  the_title(); ?></h3>
+                            </a>
+                            <ul class="meta pb-20">
+                                <li><span class="lnr lnr-calendar-full"></span><?php the_time('F j, Y') ?></li>
+
+                                        <?php
+
+                                        $comments_count = wp_count_comments($post->ID);
+                                        if ($comments_count->total_comments!=0)
+                                        echo " <li><span class='lnr lnr-bubble'></span>" . $comments_count->total_comments. "</li>";
+                                        ?>
+
+
+                            </ul>
+
+                            <?php  the_content(); ?>
+                            <div class="entry-bottom">
+                                <ul class="tags mt-10">
+                                    <?php
+                                    $id = get_the_id();
+                                    $terms = get_the_terms( $id, 'category' );
+                                    // print_r( $terms );
+
+                                    foreach($terms as $term) {
+                                        if ($term->parent != 0) {
+                                            echo ' <li><a href=' . get_term_link($term) . '>' . $term->name . '</a></li>';
+                                        }
+                                    }
+                                    ?>
+
+                                </ul>
+                                <span class="categories for-display"><?php the_tags('Tags: ', ', ', ''); ?></span>
+                            </div>
+
+
+                            <div class="navigation-wrap justify-content-between d-flex">
+                                <?php next_post(); ?>
+                                <?php previous_post(); ?>
+                            </div>
+
+
+
+                            <?php
+
+                                // If comments are open or we have at least one comment, load up the comment template.
+                                if ( comments_open() || get_comments_number() ) :
+                                    comments_template();
+                                endif;
+
+                            ?>
+
+                            <?php  endwhile;
+                            ?>
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- End single-post Area -->
+
+
+
+
+                </div>
+                <?php get_sidebar(); ?>
+                </div>
+        </div>
+            <div class="mt-30">
+                <div class="popular-post-wrap ">
+            <h4 class="title">Նմանատիպ հոդվածներ</h4>
+            <div class="single-latest-post row align-items-center">
+                <?php
+                $cat_id=3;
+                $wp_query = new WP_Query();
+                $wp_query->query('showposts=3&post_type=post&paged='.$paged.'&cat='.$cat_id);
+                while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+
+                    <div class="col-lg-4 single-popular-post">
+                        <a href="<?php echo get_permalink(); ?>">
+                            <div class="feature-img-wrap relative">
+                                <div class="feature-img relative">
+                                    <div class="overlay overlay-bg"></div>
+                                    <img class="img-fluid"
+                                         src="<?php echo get_the_post_thumbnail_url(); ?>"
+                                         alt="<?php the_title(); ?>">
+                                </div>
+                            </div>
+                            <div class="details">
+                                <h4><?php the_title(); ?></h4>
+                                <ul class="meta">
+                                    <li><span class="lnr lnr-calendar-full"></span><?php the_time('F j, Y') ?></li>
+                                    <?php
+                                    $comments_count = wp_count_comments($post->ID);
+                                    if ($comments_count->total_comments!=0)
+                                        echo " <li><span class='lnr lnr-bubble'></span>" . $comments_count->total_comments. "</li>";
+                                    ?>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+
+
+                <?php endwhile; ?>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <!-- End latest-post Area -->
+</div>
+
+
+
 <section>
-	<article class="intro">
-		<?php if (have_rows('add_images')) : ?>
-			<?php while (have_rows('add_images')) : the_row(); ?>
-				<img src="<?php the_sub_field('image'); ?>" alt="Intro">
-				<div class="intro-content container">
-					<h1><?php the_field('slider_title'); ?></h1>
-					<p>
-						<?php the_field('short_description'); ?>
-					</p>
-					<hr>
-				</div>
-			<?php endwhile; ?>
-		<?php endif; ?>
-	</article>
-
-	<?php
-
-	while ( have_posts() ) : the_post();
-
-		the_content();
-
-	endwhile;
-	?>
-
-	<article class="see-also">
-		<div class="see-also-content container">
-			
-<?php $currentLanguage  = get_bloginfo('language');
-
-  if ( $currentLanguage == "hy-AM" ) :  ?>
-     <h3>ԱՎԵԼԻՆ</h3>
-  <?php endif; ?>
- <?php if ( $currentLanguage == "en-US" ) :  ?>
-    <h3>SEE ALSO</h3>
-  <?php endif; ?>
-			<hr>
-			<div class="d-flex justify-content-md-between justify-content-center flex-wrap">
-
-				<?php $args = array(
-					'post_type' => 'post',
-					'posts_per_page' => 2,
-					'orderby' => 'rand',
-					'post__not_in' => array( $post->ID )
-
-				);
-
-
-				$releaseQuery = new WP_Query( $args );
 
 
 
-				if ( $releaseQuery->have_posts() ) :
-					while ( $releaseQuery->have_posts() ) :
-						$releaseQuery->the_post(); ?>
 
-						<div class="see-also-box">
-							<div class="see-also-img">
-								<img src="<?php echo get_field('front_page_image'); ?>" alt="See Also">
-								<div class="see-also-border-left"></div>
-							</div>
-							<div class="see-also-caption">
-								<h3><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h3>
-								<p><?php echo get_field('short_description_of_blog_post'); ?></p>
-<?php  if ( $currentLanguage == "hy-AM" ) :  ?>
-      <a href="<?php echo get_permalink(); ?>"> <button>Իմանալ ավելին</button></a>
-  <?php endif; ?>
- <?php if ( $currentLanguage == "en-US" ) :  ?>
-      <a href="<?php echo get_permalink(); ?>"><button>Learn more</button></a>
-  <?php endif; ?>
-								
-							</div>
-						</div>
-
-					<?php endwhile; endif; ?>
-
-
-			</div>
-		</div>
-	</article>
-</section>
-
-
-<?php get_footer(); ?>
+    <?php get_footer(); ?>

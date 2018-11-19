@@ -7,29 +7,27 @@
 get_header(); ?>
 
 
-<section>
-
-	<article class="intro">
-
-	</article>
-
-
-	<article class="intro">
-
-	</article>
-
-	<article class="page">
-		<div class="page-content container">
+<section class="latest-post-area pb-120">
+    <div class="container no-padding">
+        <div class="row">
+            <div class="col-lg-8 post-list">
+                <div class="popular-post-wrap">
+                    <div class="page-content container">
 
 
-			<h2>ERROR 404</h2>
-			<p>
-				Oops! That page can&rsquo;t be found.
-			</p>
+                        <h2>ERROR 404</h2>
+                        <p>
+                            Oops! That page can&rsquo;t be found.
+                        </p>
 
-		</div>
-	</article>
+                    </div>
+                </div>
+            </div>
+            <?php get_sidebar(); ?>
+        </div>
+    </div>
 </section>
+
 
 
 

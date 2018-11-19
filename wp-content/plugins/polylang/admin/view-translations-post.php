@@ -1,11 +1,11 @@
 <?php
 
 /**
- * displays the translations fields for posts
+ * Displays the translations fields for posts
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // don't access directly
+	exit; // Don't access directly
 };
 ?>
 <p><strong><?php esc_html_e( 'Translations', 'polylang' ); ?></strong></p>
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php
 
 			/**
-			 * Fires before the translation colummn is outputed in the language metabox
+			 * Fires before the translation column is outputted in the language metabox
 			 * The dynamic portion of the hook name, `$lang`, refers to the language code
 			 *
 			 * @since 2.1

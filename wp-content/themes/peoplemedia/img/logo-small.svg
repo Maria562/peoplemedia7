@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="1366" height="766" viewBox="0 0 1366 766">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #232323;
+        stroke: #35b729;
+        stroke-width: 10px;
+      }
+
+      .cls-2, .cls-3 {
+        font-size: 281px;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #35b729;
+      }
+
+      .cls-3, .cls-6 {
+        text-anchor: middle;
+      }
+
+      .cls-3 {
+        font-family: "Norwester";
+      }
+
+      .cls-5, .cls-6 {
+        font-size: 55px;
+      }
+
+      .cls-6 {
+        fill: #fff;
+        font-family: "Clear Sans";
+      }
+    </style>
+  </defs>
+  <rect x="-0.219" y="-0.406" width="1367.409" height="509.281" class="cls-1"/>
+  <text x="682" y="380" class="cls-2"><tspan x="682" class="cls-3">PEOPLE</tspan></text>
+  <rect x="152.156" y="444.688" width="1066.684" height="320.812" class="cls-4"/>
+  <text transform="translate(684 684) scale(4.03 3.9)" class="cls-5"><tspan x="0" class="cls-6">MEDIA</tspan></text>
+</svg>

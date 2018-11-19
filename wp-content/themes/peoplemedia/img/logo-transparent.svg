@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="2000" height="2000" viewBox="0 0 2000 2000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #000;
+        stroke: #35b729;
+        stroke-width: 10px;
+      }
+
+      .cls-1, .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2, .cls-6 {
+        fill: #35b729;
+      }
+
+      .cls-3, .cls-4 {
+        font-size: 55px;
+      }
+
+      .cls-4 {
+        fill: #d9d9d9;
+        font-family: "Clear Sans";
+      }
+
+      .cls-4, .cls-6 {
+        text-anchor: middle;
+      }
+
+      .cls-5, .cls-6 {
+        font-size: 55.8794px;
+      }
+
+      .cls-6 {
+        font-family: "Norwester";
+      }
+    </style>
+  </defs>
+  <path d="M312.738,634.498 L1684.240,634.498 L1684.240,1145.292 L312.738,1145.292 L312.738,634.498 Z" class="cls-1"/>
+  <path d="M465.574,1080.940 L1535.426,1080.940 L1535.426,1402.700 L465.574,1402.700 L465.574,1080.940 Z" class="cls-2"/>
+  <text transform="translate(999 1321) scale(4.04 3.91)" class="cls-3"><tspan x="0" class="cls-4">MEDIA</tspan></text>
+  <text transform="translate(997 1015) scale(5.01)" class="cls-5"><tspan x="0" class="cls-6">PEOPLE</tspan></text>
+</svg>

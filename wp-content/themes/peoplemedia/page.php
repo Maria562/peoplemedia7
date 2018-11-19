@@ -8,33 +8,28 @@
 get_header(); ?>
 
 
-<section>
+<section class="latest-post-area pb-120">
+    <div class="container no-padding">
+        <div class="row">
+            <div class="col-lg-8 post-list">
+                <div class="popular-post-wrap">
+                    <?php
 
-	<article class="intro">
+                    while ( have_posts() ) : the_post();
 
-	</article>
+                        the_content();
 
-
-	<article class="intro">
-
-	</article>
-
-	<article class="page">
-		<div class="page-content container">
-
-
-		<?php
-
-		while ( have_posts() ) : the_post();
-
-			the_content();
-
-		endwhile;
-		?>
-			
+                    endwhile;
+                    ?>
+                </div>
+            </div>
+            <?php get_sidebar(); ?>
         </div>
-	</article>
+    </div>
 </section>
+
+
+
 
 <?php get_footer(); ?>
 
